@@ -36,7 +36,7 @@ export default function EvidenceCard({ item }) {
   const border = mitigating ? 'border-l-emerald-500' : item.kind === 'observed' && item.strength === 'strong' ? 'border-l-red-500' : meta.border;
 
   return (
-    <article className={`card border-l-4 p-4 ${border} ${item.kind === 'assumption' ? 'bg-slate-50/60' : ''}`}>
+    <article className={`card border-l-4 p-3 sm:p-4 ${border} ${item.kind === 'assumption' ? 'bg-slate-50/60' : ''}`}>
       <div className="flex flex-wrap items-start justify-between gap-2">
         <h4 className="flex min-w-0 items-start gap-2 text-sm font-semibold text-slate-900">
           <Icon className={`mt-0.5 h-4 w-4 shrink-0 ${mitigating ? 'text-emerald-600' : 'text-slate-500'}`} aria-hidden="true" />

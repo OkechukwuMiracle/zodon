@@ -16,7 +16,7 @@ export default function About() {
   const { health } = useInvestigation();
   const ai = health.data?.ai;
   return (
-    <div className="grid gap-5">
+    <div className="grid grid-cols-1 gap-5">
       <div>
         <h2 className="text-xl font-semibold tracking-tight text-slate-900">About Zodon</h2>
         <p className="mt-1 max-w-3xl text-sm text-slate-600">

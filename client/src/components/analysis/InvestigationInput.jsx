@@ -51,8 +51,8 @@ function SamplePicker({ onPick }) {
   }, [open]);
 
   return (
-    <div className="relative" ref={ref}>
-      <button type="button" className="btn-secondary" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-haspopup="menu" disabled={loading || !!error}>
+    <div className="relative w-full sm:w-auto" ref={ref}>
+      <button type="button" className="btn-secondary w-full sm:w-auto" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-haspopup="menu" disabled={loading || !!error}>
         <FlaskConical className="h-4 w-4 text-blue-600" aria-hidden="true" />
         Try a Sample Investigation
         <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
@@ -144,7 +144,7 @@ export default function InvestigationInput({ initialSampleId = null }) {
   return (
     <div className="card">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-4 pt-3 sm:px-5">
-        <div role="tablist" aria-label="Input type" className="-mb-px flex gap-1">
+        <div role="tablist" aria-label="Input type" className="-mb-px flex w-full gap-1 sm:w-auto">
           {TABS.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -158,16 +158,16 @@ export default function InvestigationInput({ initialSampleId = null }) {
                 resetRun();
               }}
               disabled={running}
-              className={`flex items-center gap-2 border-b-2 px-3 py-2.5 text-sm font-medium transition-colors ${
+              className={`flex flex-1 items-center justify-center gap-2 border-b-2 px-2 py-2.5 text-sm font-medium whitespace-nowrap transition-colors sm:flex-none sm:px-3 ${
                 tab === id ? 'border-blue-600 text-blue-700' : 'border-transparent text-slate-500 hover:text-slate-800'
               }`}
             >
-              <Icon className="h-4 w-4" aria-hidden="true" />
+              <Icon className="h-4 w-4 shrink-0 max-[400px]:hidden" aria-hidden="true" />
               {label}
             </button>
           ))}
         </div>
-        <div className="pb-3">
+        <div className="w-full pb-3 sm:w-auto">
           <SamplePicker onPick={loadSample} />
         </div>
       </div>

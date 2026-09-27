@@ -13,7 +13,7 @@ export default function AppLayout() {
       <AppSidebar mobileOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
       <div className="lg:pl-64">
         <AppHeader onOpenMenu={() => setMobileOpen(true)} />
-        <main id="main" className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:py-8">
+        <main id="main" className="mx-auto max-w-6xl px-3 py-5 sm:px-6 sm:py-6 lg:py-8 2xl:max-w-7xl">
           <Outlet />
         </main>
       </div>

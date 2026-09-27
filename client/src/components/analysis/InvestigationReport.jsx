@@ -15,7 +15,7 @@ import { reportToText, downloadJson } from '../../utils/reportText.js';
 
 function Section({ number, title, children, aside }) {
   return (
-    <section className="card p-4 sm:p-6" aria-labelledby={`section-${number}`}>
+    <section className="card p-3.5 sm:p-6" aria-labelledby={`section-${number}`}>
       <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
         <h2 id={`section-${number}`} className="flex items-baseline gap-2.5 text-base font-semibold text-slate-900">
           <span className="font-mono text-xs text-slate-400">{String(number).padStart(2, '0')}</span>
@@ -68,7 +68,7 @@ function StrengthMeter({ value }) {
   );
 }
 
-function ReportActions({ report, compact = false }) {
+function ReportActions({ report }) {
   const navigate = useNavigate();
   const { notify } = useToast();
   const { isSaved, saveToHistory } = useInvestigation();
@@ -88,7 +88,7 @@ function ReportActions({ report, compact = false }) {
   };
 
   return (
-    <div className={`no-print flex flex-wrap gap-2 ${compact ? '' : 'justify-start'}`}>
+    <div className="no-print grid grid-cols-1 gap-2 min-[420px]:grid-cols-2 sm:flex sm:flex-wrap">
       <button type="button" className="btn-secondary" onClick={copy}>
         <Copy className="h-4 w-4" aria-hidden="true" /> Copy Report
       </button>
@@ -102,7 +102,7 @@ function ReportActions({ report, compact = false }) {
         {saved ? <Check className="h-4 w-4 text-emerald-600" aria-hidden="true" /> : <Save className="h-4 w-4" aria-hidden="true" />}
         {saved ? 'Saved to History' : 'Save to History'}
       </button>
-      <button type="button" className="btn-primary" onClick={() => navigate('/investigate')}>
+      <button type="button" className="btn-primary min-[420px]:col-span-2 sm:col-span-1" onClick={() => navigate('/investigate')}>
         <Plus className="h-4 w-4" aria-hidden="true" /> Start New Investigation
       </button>
     </div>
@@ -118,7 +118,7 @@ export default function InvestigationReport({ report, preview, source }) {
   const num = Object.fromEntries(order.map((k, i) => [k, i + 1]));
 
   return (
-    <div className="grid gap-5">
+    <div className="grid grid-cols-1 gap-5">
       {report.notices?.map((n) => (
         <div key={n} role="note" className="flex items-start gap-2 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
           <Info className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" /> {n}
@@ -128,7 +128,7 @@ export default function InvestigationReport({ report, preview, source }) {
       {/* Header */}
       <header className={`card overflow-hidden`}>
         <div className={`h-1 ${sev.dot}`} aria-hidden="true" />
-        <div className="p-4 sm:p-6">
+        <div className="p-3.5 sm:p-6">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
             <span className="font-mono text-slate-700">{report.id}</span>
             <time dateTime={report.created_at}>{formatDateTime(report.created_at)}</time>
@@ -139,7 +139,7 @@ export default function InvestigationReport({ report, preview, source }) {
             <div className="min-w-0">
               <div className="label mb-1.5">Threat assessment</div>
               <div className="flex flex-wrap items-center gap-3">
-                <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-[28px]">{report.classification_label}</h2>
+                <h2 className="text-xl font-semibold tracking-tight break-words text-slate-900 sm:text-2xl lg:text-[28px]">{report.classification_label}</h2>
                 <ThreatSeverityBadge severity={a.severity} size="lg" />
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function InvestigationReport({ report, preview, source }) {
       </Section>
 
       <Section number={num.assessment} title="Threat Assessment">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-4">
           <div className="rounded-md border border-slate-200 p-3">
             <div className="label mb-1">Classification</div>
             <div className="text-sm font-semibold text-slate-900">{report.classification_label}</div>
@@ -180,7 +180,7 @@ export default function InvestigationReport({ report, preview, source }) {
           </div>
         </div>
 
-        <div className="mt-5 grid gap-5 lg:grid-cols-2">
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
           <div>
             <h3 className="mb-2 text-sm font-semibold text-slate-900">Why this severity</h3>
             <ul className="space-y-1.5 text-sm text-slate-700">
@@ -330,7 +330,7 @@ export default function InvestigationReport({ report, preview, source }) {
       )}
 
       <Section number={num.report} title="Report Actions">
-        <ReportActions report={report} compact />
+        <ReportActions report={report} />
       </Section>
     </div>
   );

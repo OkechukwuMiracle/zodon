@@ -48,7 +48,7 @@ export default function AppSidebar({ mobileOpen, onClose }) {
   return (
     <>
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col bg-ink-950 lg:flex">
-        <div className="flex h-16 items-center px-6">
+        <div className="flex min-h-16 items-center px-6 pt-4 pb-3">
           <Logo />
         </div>
         <NavItems />
@@ -59,7 +59,7 @@ export default function AppSidebar({ mobileOpen, onClose }) {
         <div className="fixed inset-0 z-40 lg:hidden" role="dialog" aria-modal="true" aria-label="Navigation">
           <button type="button" className="absolute inset-0 bg-slate-900/50" onClick={onClose} aria-label="Close navigation" />
           <aside className="relative flex h-full w-72 max-w-[85vw] flex-col bg-ink-950">
-            <div className="flex h-16 items-center justify-between px-6">
+            <div className="flex min-h-16 items-start justify-between gap-3 px-6 pt-4 pb-3">
               <Logo />
               <button type="button" onClick={onClose} className="rounded p-1 text-slate-400 hover:text-white" aria-label="Close navigation">
                 <X className="h-5 w-5" />

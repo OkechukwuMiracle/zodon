@@ -5,7 +5,7 @@ import InvestigationInput from '../components/analysis/InvestigationInput.jsx';
 export default function Investigation() {
   const [params] = useSearchParams();
   return (
-    <div className="grid gap-6">
+    <div className="grid grid-cols-1 gap-6">
       <div>
         <h2 className="text-xl font-semibold tracking-tight text-slate-900">New investigation</h2>
         <p className="mt-1 text-sm text-slate-600">

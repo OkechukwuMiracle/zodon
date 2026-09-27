@@ -16,7 +16,7 @@ const STEPS = [
 export default function Dashboard() {
   const { records } = useInvestigation();
   return (
-    <div className="grid gap-8">
+    <div className="grid grid-cols-1 gap-8">
       <section className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900">Zodon</h2>
