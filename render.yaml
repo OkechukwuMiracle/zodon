@@ -1,0 +1,26 @@
+# Render Blueprint for the Zodon API. Secrets marked `sync: false` are entered in the Render dashboard.
+services:
+  - type: web
+    name: zodon-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install --omit=dev
+    startCommand: node src/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-flash-latest
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: TRUST_PROXY
+        value: 1
+      - key: MAX_UPLOAD_MB
+        value: 5
+      - key: GOOGLE_SAFE_BROWSING_API_KEY
+        sync: false

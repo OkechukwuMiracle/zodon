@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Environment files — contain GEMINI_API_KEY and other secrets. Never commit.
+.env
+.env.*
+!.env.example
+
+# Test and tooling caches
+coverage/
+.nyc_output/
+.vitest/
+.eslintcache
+.cache/
+
+# Logs and runtime files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+pids/
+*.pid
+*.pid.lock
+
+# Uploads / temporary files (Zodon keeps uploads in memory, but guard against local experiments)
+uploads/
+tmp/
+temp/
+*.tmp
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Deployment tooling
+.render/

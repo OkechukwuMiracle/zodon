@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+dist-ssr/
+build/
+*.local
+
+# Test and tooling caches
+coverage/
+.nyc_output/
+.vite/
+.vitest/
+.eslintcache
+*.tsbuildinfo
+.cache/
+
+# Logs and runtime files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+pids/
+*.pid
+*.pid.lock
+
+# Environment files — never commit secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Editors and IDEs
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Local AI-assistant / tooling state
+.claude/settings.local.json
+.gstack/
+
+# Deployment tooling local artefacts
+.vercel
+.render/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

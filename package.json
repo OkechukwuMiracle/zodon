@@ -1,0 +1,29 @@
+{
+  "name": "zodon",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Zodon — AI Cyber Incident Investigator",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev -w server\" \"npm run dev -w client\"",
+    "start": "npm run start -w server",
+    "build": "npm run build -w client",
+    "test": "npm run test -w server && npm run test -w client",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "concurrently": "^10.0.5",
+    "eslint": "^10.11.0",
+    "eslint-plugin-react-hooks": "latest",
+    "eslint-plugin-react-refresh": "latest",
+    "globals": "latest"
+  }
+}

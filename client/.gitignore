@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+*.local
+
+# Environment files. VITE_ variables are public once built, but local values
+# (e.g. your deployed API URL) should not be committed. Keep .env.example.
+.env
+.env.*
+!.env.example
+
+# Test and tooling caches
+coverage/
+.vite/
+.vitest/
+.eslintcache
+.cache/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Deployment tooling
+.vercel
